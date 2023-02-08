@@ -1,27 +1,70 @@
+<!-- Adressing the DOCTYPE -->
 <!DOCTYPE html>
 <html>
  <header>
    <title>WebDev</title>
-  </header>
+   <h1 align="middle">Hello!</h1>
+   <p align="right"><img src="Smiley.jpg" alt="Smiley" width="60" height="60"/></p>
+</header>
+<!-- Will use for future navigation -->
+<nav>Home</nav>
+<nav>Files</nav>
+<!-- Location will most likely be changed, code from javapoint.com-->
+<aside>
+  <div class="loginform" align="right">  
+      <h3 class="formheading">Please Login</h3>  
+      <form action="LoginServlet" method="post">  
+      <table>  
+        <tr><td>Email:</td><td><input type="email" name="email"/></td></tr>  
+        <tr><td>Password:</td><td><input type="password" name="password"/></td></tr>  
+        <tr><td colspan="2" style="text-align:center"><input class="sub" type="submit" value="login"/></td></tr>  
+      </table>  
+      </form>  
+  </div>
+ </aside> 
+
 <body>
-<h1 align="middle">Hello!</h1>
+<!-- Code from W3 Schools -->
+<iframe width="550" height="315" src="https://www.youtube.com/embed/jNQXAC9IVRw" frameborder="0" title="Random Video"> </iframe>  
+<p>Random Video</p>
 
-
-
-<iframe src="https://www.w3schools.com/html/html_iframe.asp" title="description"></iframe>
+<br>
+<br>
+<!-- Code from javapoint.com -->
+<h1>Find your Current location</h1>  
+<button onclick="getlocation()">Click me</button>  
+<div id="location"></div>  
+<script>  
+    var x= document.getElementById("location");  
+    function getlocation() {  
+        if(navigator.geolocation){  
+            navigator.geolocation.getCurrentPosition(showPosition)  
+          }  
+        else  
+        {  
+             alert("Sorry! your browser is not supporting")  
+         } }  
+       
+     function showPosition(position){  
+       var x = "Your current location is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " +    position.coords.longitude + ")";  
+                document.getElementById("location").innerHTML = x;  
+     }  
+</script>  
+<br>
+<br>
+<!-- Code from W3 Schools, picture will be changed if it remains on the site.-->
+<H1>Canvas</H1>
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+</canvas>
 <script>
-    var x = document.getElementById("demo");
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(showPosition);
-      } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-      }
-    }
-    function showPosition(position) {
-      x.innerHTML = "Latitude: " + position.coords.latitude +
-      "<br>Longitude: " + position.coords.longitude;
-    }
-</script>
+  var c = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d");
+  ctx.moveTo(0, 0);
+  ctx.lineTo(200, 100);
+  ctx.stroke();
+  </script>
+
 </body>
+
 </html>
+<!-- NEED better structure!-->
